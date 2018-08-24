@@ -8,7 +8,7 @@ public class LocalHumanPlayer : MonoBehaviour {
     [SerializeField] BoardInput boardInput;
 
     void Start() {
-        boardInput.OnClick.Subscribe(Deploy);
+        boardInput.OnClick.Subscribe(Deploy).AddTo(gameObject);
     }
 
     void Deploy(Vector2 v) {

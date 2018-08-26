@@ -8,6 +8,7 @@ namespace View {
 
 public class Pawn : MonoBehaviour {
     [SerializeField] ParticleSystem particleSystem;
+    [SerializeField] GameObject territory;
 
     ParticleSystem.Particle[] particles;
     public int particleCount;
@@ -29,6 +30,8 @@ public class Pawn : MonoBehaviour {
         this.pawnModel = pawnModel;
         var pos = pawnModel.location;
         transform.localPosition = new Vector3(pos.x, pos.y, -0.1f);
+        territory.transform.localScale =
+            Vector3.one * 2.0f * pawnModel.territory;
     }
 
     void Update() {

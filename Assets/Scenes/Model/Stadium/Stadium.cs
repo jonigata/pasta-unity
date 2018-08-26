@@ -66,7 +66,7 @@ public class Stadium : MonoBehaviour {
 
     bool IsInTheFriendTerritory(Vector2 p) {
         foreach (var pawn in pawns) {
-            if (Vector2.Distance(pawn.location,p) < pawn.teritory) {
+            if (Vector2.Distance(pawn.location,p) < pawn.territory) {
                 return true;
             }
         }

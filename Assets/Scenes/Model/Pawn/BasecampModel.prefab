@@ -51,4 +51,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20215da46a8343844a3283afb725979d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teritory: 60
+  territory: 120

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace Model {
 
 public abstract class Pawn : MonoBehaviour {
-    public float teritory;
+    public float territory;
 
     [NonSerialized] public Vector2 location;
     [NonSerialized] public PartawnPool partawnPool;

@@ -7,8 +7,11 @@ using System.Collections.Generic;
 public class BattleCore : MonoBehaviour {
     public static BattleCore instance;
 
-    [SerializeField] BoardView boardView;
-    [SerializeField] BoardModel boardModel;
+    [SerializeField] Model.Stadium stadiumModel;
+    [SerializeField] View.Stadium stadiumView;
+
+    [SerializeField] Model.Avatar alphaAvatar;
+    [SerializeField] Model.Avatar betaAvatar;
 
     void Awake() {
         Assert.IsNull(instance);
@@ -20,12 +23,20 @@ public class BattleCore : MonoBehaviour {
         instance = null;
     }
 
-    void zDeploy(Vector2 p) {
-        boardModel.Deploy(p);
+    void zDeploy(Model.Avatar avatarModel, Vector2 p) {
+        stadiumModel.Deploy(avatarModel, Model.PawnType.Knife, p);
     }
 
-    public static void Deploy(Vector2 p) {
-        instance.zDeploy(p);
+    public static void Deploy(Model.Avatar avatarModel, Vector2 p) {
+        instance.zDeploy(avatarModel, p);
     }
 
+    void Start() {
+/*
+        stadiumModel.Deploy(
+            alphaAvatar, Model.PawnType.Basecamp, new Vector2(-180, -180));
+        stadiumModel.Deploy(
+            betaAvatar, Model.PawnType.Basecamp, new Vector2(180, 180));
+*/
+    }
 }

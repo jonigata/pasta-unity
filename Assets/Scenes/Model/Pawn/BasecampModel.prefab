@@ -9,48 +9,45 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1272915198670542}
+  m_RootGameObject: {fileID: 1219693568538368}
   m_IsPrefabAsset: 1
---- !u!1 &1272915198670542
+--- !u!1 &1219693568538368
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4118693111343804}
-  - component: {fileID: 114689736793116036}
+  - component: {fileID: 4967475942245906}
+  - component: {fileID: 114598664490207252}
   m_Layer: 0
-  m_Name: PawnModel
+  m_Name: BasecampModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4118693111343804
+--- !u!4 &4967475942245906
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1272915198670542}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 1219693568538368}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114689736793116036
+--- !u!114 &114598664490207252
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1272915198670542}
+  m_GameObject: {fileID: 1219693568538368}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11306c92de372454887f0f126b8756a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 20215da46a8343844a3283afb725979d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emitInterval: 1
-  speed: 5
-  life: 15

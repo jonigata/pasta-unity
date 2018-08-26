@@ -31,7 +31,7 @@ public class PawnEmitter : MonoBehaviour
                 indices[x, y] = count;
                 particles[count].position = new Vector3(
                     (x - width / 2) * 0.2f,
-                    (y - height / 2) * 0.2f, 0);
+                    (y - height / 2) * 0.2f, -2);
                 particles[count].size = 0.15f;
                 particles[count].startLifetime = 99999.0f;
                 particles[count].remainingLifetime = 99999.0f;

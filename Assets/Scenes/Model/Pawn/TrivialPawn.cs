@@ -4,24 +4,27 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-public class TrivialPawnModel : PawnModel {
+namespace Model {
+
+public class TrivialPawn : Pawn {
     [SerializeField] public float emitInterval;
     [SerializeField] public float speed;
+    [SerializeField] public float life;
 
     float emitTimer;
 
-    void Update() {
-        base.Update();
+    public override void UpdateManually(float elapsed) {
+        base.UpdateManually(elapsed);
 
-        emitTimer += Time.deltaTime;
+        emitTimer += elapsed;
         if (emitInterval <= emitTimer) {
-            float rotation = UnityEngine.Random.Range(0, 360.0f);
-
-            PartawnModel p = new PartawnModel(location, rotation, speed);
-            partawnModels.Add(p);
+            Partawn p = partawnPool.Emit(location, speed, life);
+            partawns.Add(p);
 
             emitSubject.OnNext(p);
             emitTimer = 0;
         }
     }
+}
+
 }

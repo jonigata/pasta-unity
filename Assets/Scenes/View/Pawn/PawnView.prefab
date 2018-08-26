@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4392377518971624}
   - component: {fileID: 212520009444946102}
-  - component: {fileID: 114342850798738768}
+  - component: {fileID: 114129250860114370}
   m_Layer: 0
   m_Name: PawnView
   m_TagString: Untagged
@@ -72,7 +72,7 @@ Transform:
   m_Father: {fileID: 4392377518971624}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &114342850798738768
+--- !u!114 &114129250860114370
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -80,10 +80,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1733405133683304}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7276999f72f23e04a97116d44191d7f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 15676017301c0ec4e9f6bcb6bb828420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   particleSystem: {fileID: 198262589471948054}
+  particleCount: 0
 --- !u!198 &198262589471948054
 ParticleSystem:
   m_ObjectHideFlags: 1

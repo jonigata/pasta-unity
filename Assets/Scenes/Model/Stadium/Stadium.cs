@@ -26,9 +26,16 @@ public class Stadium : MonoBehaviour {
     public IObservable<Pawn> OnDeploy { get { return deploySubject; } }
     
     public void Deploy(Avatar avatar, PawnType pt, Vector2 p) {
-        if (pt != PawnType.Basecamp &&
-            !avatar.castle.ConsumeEnergy(3.0f)) {
-            return;
+        if (pt != PawnType.Basecamp) {
+            if (!IsInTheFriendTerritory(p)) {
+                Debug.Log("Not in the friend territory");
+                return;
+            }
+
+            if (!avatar.castle.ConsumeEnergy(3.0f)) {
+                Debug.Log("Not enough energy");
+                return;
+            }
         }
 
         Pawn pawn = Instantiate(GetPawnPrefabByType(pt), transform, false);
@@ -55,6 +62,15 @@ public class Stadium : MonoBehaviour {
                 return pawnPrefab;
         }
         return pawnPrefab;
+    }
+
+    bool IsInTheFriendTerritory(Vector2 p) {
+        foreach (var pawn in pawns) {
+            if (Vector2.Distance(pawn.location,p) < pawn.teritory) {
+                return true;
+            }
+        }
+        return false;
     }
 }
 

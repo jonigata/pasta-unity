@@ -32,11 +32,9 @@ public class BattleCore : MonoBehaviour {
     }
 
     void Start() {
-/*
         stadiumModel.Deploy(
             alphaAvatar, Model.PawnType.Basecamp, new Vector2(-180, -180));
         stadiumModel.Deploy(
             betaAvatar, Model.PawnType.Basecamp, new Vector2(180, 180));
-*/
     }
 }

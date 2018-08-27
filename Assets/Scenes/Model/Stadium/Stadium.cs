@@ -27,7 +27,7 @@ public class Stadium : MonoBehaviour {
     
     public void Deploy(Avatar avatar, PawnType pt, Vector2 p) {
         if (pt != PawnType.Basecamp) {
-            if (!IsInTheFriendTerritory(p)) {
+            if (!IsInTheFriendTerritory(avatar, p)) {
                 Debug.Log("Not in the friend territory");
                 return;
             }
@@ -71,8 +71,9 @@ public class Stadium : MonoBehaviour {
         return pawnPrefab;
     }
 
-    bool IsInTheFriendTerritory(Vector2 p) {
+    bool IsInTheFriendTerritory(Avatar a, Vector2 p) {
         foreach (var pawn in pawns) {
+            if (a.teamTag != pawn.teamTag) { continue; }
             if (Vector2.Distance(pawn.location,p) < pawn.territory) {
                 return true;
             }

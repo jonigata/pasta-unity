@@ -15,9 +15,8 @@ public class PartawnPool : MonoBehaviour {
 
     List<Partawn> partawns = new List<Partawn>();
 
-    public Partawn Emit(Vector2 location, float speed, float life) {
-        float rotation = UnityEngine.Random.Range(0, 360.0f);
-
+    public Partawn Emit(
+        Vector2 location, float rotation,float speed, float life) {
         Partawn p = new Partawn(location, rotation, speed, life);
         partawns.Add(p);
         return p;

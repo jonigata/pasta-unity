@@ -11,6 +11,8 @@ public abstract class Pawn : MonoBehaviour {
 
     [NonSerialized] public Vector2 location;
     [NonSerialized] public PartawnPool partawnPool;
+    [NonSerialized] public Pawn aimTarget;
+    [NonSerialized] public TeamTag teamTag;
 
     protected Subject<Partawn> emitSubject = new Subject<Partawn>();
     public IObservable<Partawn> OnEmit { get { return emitSubject; } }

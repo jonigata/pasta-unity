@@ -18,7 +18,13 @@ public class TrivialPawn : Pawn {
 
         emitTimer += elapsed;
         if (emitInterval <= emitTimer) {
-            Partawn p = partawnPool.Emit(location, speed, life);
+            float rotation = UnityEngine.Random.Range(0, 360.0f);
+            if (aimTarget != null) {
+                rotation = Vector2.SignedAngle(
+                    Vector2.right, aimTarget.location - location);
+            }
+
+            Partawn p = partawnPool.Emit(location, rotation, speed, life);
             partawns.Add(p);
 
             emitSubject.OnNext(p);

@@ -277,7 +277,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 215360620}
-  - component: {fileID: 215360621}
   - component: {fileID: 215360622}
   m_Layer: 0
   m_Name: BetaCastle
@@ -299,18 +298,6 @@ Transform:
   m_Father: {fileID: 919597449}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &215360621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 215360619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd072c424c614b14aab6086e87dbff35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  energyChargeSpeed: 0.7
 --- !u!114 &215360622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,6 +315,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4118693111343804, guid: 3b990e4cfdae95241807b6c43433d42b,
     type: 2}
   m_PrefabInternal: {fileID: 1791049831}
+--- !u!114 &434611305 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114598664490207252, guid: be16ef6ddf7a8ce47b2be8b480678f54,
+    type: 2}
+  m_PrefabInternal: {fileID: 775083524}
+  m_Script: {fileID: 11500000, guid: 20215da46a8343844a3283afb725979d, type: 3}
 --- !u!1 &439331268
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,7 +739,7 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4392377518971624, guid: 57a0803c5a9525a478dbf51a1582c256,
     type: 2}
-  m_PrefabInternal: {fileID: 1446776528}
+  m_PrefabInternal: {fileID: 1499967199}
 --- !u!1 &919597447
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,7 +768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pawnPrefab: {fileID: 179018539}
-  basecampPrefab: {fileID: 0}
+  basecampPrefab: {fileID: 434611305}
   partawnPool: {fileID: 776080279}
   alphaCastle: {fileID: 1713450115}
   betaCastle: {fileID: 215360622}
@@ -823,6 +816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   castle: {fileID: 215360622}
+  teamTag: 1
 --- !u!4 &1021719213
 Transform:
   m_ObjectHideFlags: 0
@@ -860,10 +854,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1118673997}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 417d0fc42f4f5b446840cf4174768ee3, type: 3}
+  m_Script: {fileID: 11500000, guid: 17c3a6653176aac41a647343ce9c7c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boardInput: {fileID: 439331269}
   avatar: {fileID: 1021719212}
 --- !u!4 &1118673999
 Transform:
@@ -950,7 +943,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1446776528
+--- !u!1001 &1499967199
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1061,6 +1054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   castle: {fileID: 1713450115}
+  teamTag: 0
 --- !u!4 &1771854829
 Transform:
   m_ObjectHideFlags: 0

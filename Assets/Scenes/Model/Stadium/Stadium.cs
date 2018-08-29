@@ -26,6 +26,7 @@ public class Stadium : MonoBehaviour {
     public IObservable<Pawn> OnDeploy { get { return deploySubject; } }
     
     public void Deploy(Avatar avatar, PawnType pt, Vector2 p) {
+        Debug.LogFormat("Deploying {0}", pt);
         if (pt != PawnType.Basecamp) {
             if (!IsInTheFriendTerritory(avatar, p)) {
                 Debug.Log("Not in the friend territory");

@@ -13,11 +13,12 @@ public class Stadium : MonoBehaviour {
     List<Pawn> pawns = new List<Pawn>();
 
 
-    void Start() {
+    void Awake() {
         stadiumModel.OnDeploy.Subscribe(Deploy).AddTo(gameObject);
     }
 
     public void Deploy(Model.Pawn pawnModel) {
+        Debug.Log("A");
         Pawn pawn = Instantiate(pawnViewPrefab, transform, false);
         pawn.SetPawnModel(pawnModel);
         pawns.Add(pawn);

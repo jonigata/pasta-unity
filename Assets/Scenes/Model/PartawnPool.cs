@@ -22,6 +22,15 @@ public class PartawnPool : MonoBehaviour {
         return p;
     }
 
+    struct Contact {
+        public Vector2 diff;
+        public float dSq;
+        public Partawn a;
+        public Partawn b;
+    }
+
+    Contact[] contacts = new Contact[65536];
+
     void Update() {
         // 押し合い
         float thresholdSq = threshold * threshold;
@@ -35,13 +44,21 @@ public class PartawnPool : MonoBehaviour {
                 var dSq = diff.sqrMagnitude;
 
                 if (dSq < thresholdSq) {
-                    var power = (thresholdSq - dSq) / thresholdSq;
-                    var force = diff * (power * powerFactor / Mathf.Sqrt(dSq));
-                    pi.force -= force;
-                    pj.force += force;
+                    contacts[affectedPairs].diff = diff;
+                    contacts[affectedPairs].dSq = dSq;
+                    contacts[affectedPairs].a = pi;
+                    contacts[affectedPairs].b = pj;
                     affectedPairs++;
                 }
             }
+        }
+
+        for (int i = 0 ; i < affectedPairs ;i++) {
+            var c = contacts[i];
+            var power = (thresholdSq - c.dSq) / thresholdSq;
+            var force = c.diff * (power * powerFactor / Mathf.Sqrt(c.dSq));
+            c.a.force -= force;
+            c.b.force += force;
         }
 
         for (int i = 0 ; i < partawns.Count ; i++) {
@@ -50,6 +67,7 @@ public class PartawnPool : MonoBehaviour {
             pi.force = Vector2.zero;
         }
     }
+
 }
 
 }

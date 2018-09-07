@@ -54,4 +54,5 @@ MonoBehaviour:
   territory: 60
   emitInterval: 1
   speed: 5
+  dps: 1
   life: 15

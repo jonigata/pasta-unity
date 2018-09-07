@@ -16,8 +16,9 @@ public class PartawnPool : MonoBehaviour {
     List<Partawn> partawns = new List<Partawn>();
 
     public Partawn Emit(
-        Vector2 location, float rotation,float speed, float life) {
-        Partawn p = new Partawn(location, rotation, speed, life);
+        TeamTag teamTag,
+        Vector2 location, float rotation,float speed, float dps, float life) {
+        Partawn p = new Partawn(teamTag, location, rotation, speed, dps, life);
         partawns.Add(p);
         return p;
     }
@@ -32,9 +33,10 @@ public class PartawnPool : MonoBehaviour {
     Contact[] contacts = new Contact[65536];
 
     void Update() {
-        // 押し合い
+        float elapsed = Time.deltaTime;
         float thresholdSq = threshold * threshold;
 
+        // detection
         affectedPairs = 0;
         for (int i = 0 ; i < partawns.Count ; i++) {
             var pi = partawns[i];
@@ -53,6 +55,16 @@ public class PartawnPool : MonoBehaviour {
             }
         }
 
+        // 殴り合い
+        for (int i = 0 ; i < affectedPairs ;i++) {
+            var c = contacts[i];
+            if (c.a.teamTag != c.b.teamTag) {
+                c.a.life -= c.b.dps * elapsed;
+                c.b.life -= c.a.dps * elapsed;
+            }
+        }
+
+        // 押し合い(力計算)
         for (int i = 0 ; i < affectedPairs ;i++) {
             var c = contacts[i];
             var power = (thresholdSq - c.dSq) / thresholdSq;
@@ -61,6 +73,7 @@ public class PartawnPool : MonoBehaviour {
             c.b.force += force;
         }
 
+        // 押し合い(力適用)
         for (int i = 0 ; i < partawns.Count ; i++) {
             var pi = partawns[i];
             pi.location += pi.force;

@@ -6,19 +6,24 @@ using System.Collections.Generic;
 namespace Model {
 
 public class Partawn {
+    public TeamTag teamTag;
     public Vector2 location;
     public Vector2 force;
     public float rotation;
+    public float dps;
     public float life;
     float speed;
 
     Vector2 direction;
 
     public Partawn(
-        Vector2 location, float rotation, float speed, float life) {
+        TeamTag teamTag, 
+        Vector2 location, float rotation, float speed, float dps, float life) {
+        this.teamTag = teamTag;
         this.location = location;
         this.rotation = rotation;
         this.speed = speed;
+        this.dps = dps;
         this.life = life;
 
         var rad = Mathf.Deg2Rad * rotation;

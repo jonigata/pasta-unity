@@ -8,7 +8,8 @@ namespace View {
 
 public class Stadium : MonoBehaviour {
     [SerializeField] Model.Stadium stadiumModel;
-    [SerializeField] Pawn pawnViewPrefab;
+    [SerializeField] Pawn bluePawnViewPrefab;
+    [SerializeField] Pawn redPawnViewPrefab;
 
     List<Pawn> pawns = new List<Pawn>();
 
@@ -19,7 +20,11 @@ public class Stadium : MonoBehaviour {
 
     public void Deploy(Model.Pawn pawnModel) {
         Debug.Log("A");
-        Pawn pawn = Instantiate(pawnViewPrefab, transform, false);
+        Pawn prefab = bluePawnViewPrefab;
+        if (pawnModel.teamTag == Model.TeamTag.Beta) {
+            prefab = redPawnViewPrefab;
+        }
+        Pawn pawn = Instantiate(prefab, transform, false);
         pawn.SetPawnModel(pawnModel);
         pawns.Add(pawn);
     }

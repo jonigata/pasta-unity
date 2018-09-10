@@ -3,6 +3,7 @@ using UniRx;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Model {
 
@@ -59,6 +60,8 @@ public class Stadium : MonoBehaviour {
         foreach (var pawn in pawns) {
             pawn.UpdateManually(Time.deltaTime);
         }
+        pawns = pawns.Where(x => !x.DieIfFatallyInjured()).ToList();
+
         alphaCastle.UpdateManually(Time.deltaTime);
         betaCastle.UpdateManually(Time.deltaTime);
     }

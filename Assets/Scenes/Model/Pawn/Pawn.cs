@@ -33,12 +33,16 @@ public abstract class Pawn : MonoBehaviour {
         partawns.RemoveAll(x => x.IsFatallyInjured());
 
         partawnPool.CollectAttack(this);
+    }
 
+    public bool DieIfFatallyInjured() {
         if (life <= 0) {
             dieSubject.OnNext(Unit.Default);
             dieSubject.OnCompleted();
             Destroy(gameObject);
+            return true;
         }
+        return false;
     }
 }
 

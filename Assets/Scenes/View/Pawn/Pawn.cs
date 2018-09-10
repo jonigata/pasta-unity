@@ -36,7 +36,7 @@ public class Pawn : MonoBehaviour {
         pawnModel.OnDie.Subscribe(
             u => {
                 Destroy(gameObject);
-            });
+            }).AddTo(this);
     }
 
     void Update() {

@@ -44,7 +44,7 @@ public class Stadium : MonoBehaviour {
         pawn.partawnPool = partawnPool;
         pawn.location = p;
         pawn.teamTag = avatar.teamTag;
-        pawn.life = 100;
+        pawn.life = 20;
         pawns.Add(pawn);
 
         deploySubject.OnNext(pawn);

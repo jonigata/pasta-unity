@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11306c92de372454887f0f126b8756a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  territory: 60
+  territory: 90
   emitInterval: 1
   speed: 5
   dps: 1

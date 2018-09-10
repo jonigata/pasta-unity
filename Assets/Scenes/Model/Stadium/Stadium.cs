@@ -43,6 +43,7 @@ public class Stadium : MonoBehaviour {
         pawn.partawnPool = partawnPool;
         pawn.location = p;
         pawn.teamTag = avatar.teamTag;
+        pawn.life = 100;
         pawns.Add(pawn);
 
         deploySubject.OnNext(pawn);
@@ -70,7 +71,7 @@ public class Stadium : MonoBehaviour {
                 return pawnPrefab;
         }
         return pawnPrefab;
-    }
+   }
 
     bool IsInTheFriendTerritory(Avatar a, Vector2 p) {
         foreach (var pawn in pawns) {

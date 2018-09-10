@@ -81,6 +81,14 @@ public class PartawnPool : MonoBehaviour {
         }
     }
 
+    public void CollectAttack(Pawn pawn) {
+        for (int i = 0 ; i < partawns.Count ; i++) {
+            var pi = partawns[i];
+            if (pi.teamTag == pawn.teamTag) { continue; }
+            pawn.life -= pi.dps * Time.deltaTime;
+        }
+    }
+
 }
 
 }

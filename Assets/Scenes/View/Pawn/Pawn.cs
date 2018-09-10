@@ -32,6 +32,11 @@ public class Pawn : MonoBehaviour {
         transform.localPosition = new Vector3(pos.x, pos.y, -0.1f);
         territory.transform.localScale =
             Vector3.one * 2.0f * pawnModel.territory;
+
+        pawnModel.OnDie.Subscribe(
+            u => {
+                Destroy(gameObject);
+            });
     }
 
     void Update() {

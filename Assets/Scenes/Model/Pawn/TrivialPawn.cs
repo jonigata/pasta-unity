@@ -7,12 +7,18 @@ using System.Collections.Generic;
 namespace Model {
 
 public class TrivialPawn : Pawn {
+    [SerializeField] public float lifeSpan;
     [SerializeField] public float emitInterval;
     [SerializeField] public float partawnSpeed;
     [SerializeField] public float partawnDps;
     [SerializeField] public float partawnLife;
 
     float emitTimer;
+    float initialLife;
+
+    void Start() {
+        initialLife = life;
+    }
 
     public override void UpdateManually(float elapsed) {
         base.UpdateManually(elapsed);
@@ -33,6 +39,8 @@ public class TrivialPawn : Pawn {
             emitSubject.OnNext(p);
             emitTimer = 0;
         }
+
+        life -= initialLife * elapsed / lifeSpan;
     }
 }
 

@@ -11,6 +11,10 @@ public class Castle : MonoBehaviour {
 
     [SerializeField] float energyChargeSpeed;
 
+    void Start() {
+        energy = 5.0f;
+    }
+
     public void UpdateManually(float elapsed) {
         energy = Mathf.Clamp(
             energy + elapsed * energyChargeSpeed, 0, energyMax);

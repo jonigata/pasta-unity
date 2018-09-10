@@ -33,6 +33,8 @@ public abstract class Pawn : MonoBehaviour {
         partawns.RemoveAll(x => x.IsFatallyInjured());
 
         partawnPool.CollectAttack(this);
+
+        life -= elapsed;
     }
 
     public bool DieIfFatallyInjured() {

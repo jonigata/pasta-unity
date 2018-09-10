@@ -8,9 +8,9 @@ namespace Model {
 
 public class TrivialPawn : Pawn {
     [SerializeField] public float emitInterval;
-    [SerializeField] public float speed;
-    [SerializeField] public float dps;
-    [SerializeField] public float life;
+    [SerializeField] public float partawnSpeed;
+    [SerializeField] public float partawnDps;
+    [SerializeField] public float partawnLife;
 
     float emitTimer;
 
@@ -26,7 +26,8 @@ public class TrivialPawn : Pawn {
             }
 
             Partawn p = partawnPool.Emit(
-                teamTag, location, rotation, speed, dps, life);
+                teamTag, location, rotation,
+                partawnSpeed, partawnDps, partawnLife);
             partawns.Add(p);
 
             emitSubject.OnNext(p);

@@ -27,11 +27,15 @@ public class BattleCore : MonoBehaviour {
         stadiumModel.Deploy(avatarModel, Model.PawnType.Knife, p);
     }
 
-    public static void Deploy(Model.Avatar avatarModel, Vector2 p) {
+    public static void Deploy(
+        Model.Avatar avatarModel, Model.Card card, Vector2 p) {
         instance.zDeploy(avatarModel, p);
     }
 
     void Start() {
+        alphaAvatar.pile.SetUpWithHierarchy(true);
+        betaAvatar.pile.SetUpWithHierarchy(true);
+
         stadiumModel.Deploy(
             alphaAvatar, Model.PawnType.Basecamp, new Vector2(-180, -180));
         stadiumModel.Deploy(

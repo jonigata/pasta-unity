@@ -7,12 +7,6 @@ using System.Linq;
 
 namespace Model {
 
-public enum PawnType {
-    Basecamp,
-    Knife,
-}
-
-
 public class Stadium : MonoBehaviour {
     [SerializeField] Pawn pawnPrefab;
     [SerializeField] Basecamp basecampPrefab;

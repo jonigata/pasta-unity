@@ -13,9 +13,8 @@ public enum TeamTag {
 public class Avatar : MonoBehaviour {
     public Castle castle;
     public TeamTag teamTag;
+    public Pile pile;
 
-    void Update () {
-    }
 }
 
 }

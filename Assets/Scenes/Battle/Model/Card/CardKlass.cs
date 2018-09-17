@@ -6,6 +6,7 @@ using System.Collections.Generic;
 namespace Model {
 
 public enum CardKlass {
+    Basecamp,
     Knife,
     Tower,
     Sword,

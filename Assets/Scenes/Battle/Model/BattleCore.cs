@@ -24,7 +24,7 @@ public class BattleCore : MonoBehaviour {
     }
 
     void zDeploy(Model.Avatar avatarModel, Vector2 p) {
-        stadiumModel.Deploy(avatarModel, Model.PawnType.Knife, p);
+        stadiumModel.Deploy(avatarModel, Model.CardKlass.Knife, p);
     }
 
     public static void Deploy(
@@ -37,8 +37,8 @@ public class BattleCore : MonoBehaviour {
         betaAvatar.pile.SetUpWithHierarchy(true);
 
         stadiumModel.Deploy(
-            alphaAvatar, Model.PawnType.Basecamp, new Vector2(-180, -180));
+            alphaAvatar, Model.CardKlass.Basecamp, new Vector2(-180, -180));
         stadiumModel.Deploy(
-            betaAvatar, Model.PawnType.Basecamp, new Vector2(180, 180));
+            betaAvatar, Model.CardKlass.Basecamp, new Vector2(180, 180));
     }
 }

@@ -20,9 +20,9 @@ public class Stadium : MonoBehaviour {
     Subject<Pawn> deploySubject = new Subject<Pawn>();
     public IObservable<Pawn> OnDeploy { get { return deploySubject; } }
     
-    public void Deploy(Avatar avatar, PawnType pt, Vector2 p) {
-        Debug.LogFormat("Deploying {0}", pt);
-        if (pt != PawnType.Basecamp) {
+    public void Deploy(Avatar avatar, CardKlass ck, Vector2 p) {
+        Debug.LogFormat("Deploying {0}", ck);
+        if (ck != CardKlass.Basecamp) {
             if (!IsInTheFriendTerritory(avatar, p)) {
                 Debug.Log("Not in the friend territory");
                 return;
@@ -34,7 +34,7 @@ public class Stadium : MonoBehaviour {
             }
         }
 
-        Pawn pawn = Instantiate(GetPawnPrefabByType(pt), transform, false);
+        Pawn pawn = Instantiate(GetPawnPrefabByType(ck), transform, false);
         pawn.partawnPool = partawnPool;
         pawn.location = p;
         pawn.teamTag = avatar.teamTag;
@@ -60,11 +60,11 @@ public class Stadium : MonoBehaviour {
         betaCastle.UpdateManually(Time.deltaTime);
     }
 
-    Pawn GetPawnPrefabByType(PawnType pt) {
-        switch (pt) {
-            case PawnType.Basecamp:
+    Pawn GetPawnPrefabByType(CardKlass ck) {
+        switch (ck) {
+            case CardKlass.Basecamp:
                 return basecampPrefab;
-            case PawnType.Knife:
+            default:
                 return pawnPrefab;
         }
         return pawnPrefab;

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace View {
 
 public class Card : MonoBehaviour {
-    Model.Card model;
+    [NonSerialized] public Model.Card model;
 
     public void SetModel(Model.Card card) { model = card; }
 }

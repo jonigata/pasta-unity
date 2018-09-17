@@ -14,7 +14,7 @@ public class LocalComputerPlayer : MonoBehaviour {
             Vector2 v = new Vector2(
                 -256 + UnityEngine.Random.Range(0, 512),
                 -256 + UnityEngine.Random.Range(0, 512));
-            BattleCore.Deploy(avatar, v);
+            BattleCore.Deploy(avatar, null, v);
         }
     }
 }

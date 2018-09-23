@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,10 +11,9 @@ public class BoardInput : MonoBehaviour {
     Subject<Vector2> clickSubject = new Subject<Vector2>();
     public IObservable<Vector2> OnClick { get { return clickSubject; } }
 
-    void Update () {
-        if (Input.GetMouseButtonDown(0)) {
-            var p = Input.mousePosition;
-            clickSubject.OnNext(camera.ScreenToWorldPoint(p));
-        }
+    public void OnSpriteClick(BaseEventData d) {
+        var pd = (PointerEventData)d;
+        Debug.Log(camera.ScreenToWorldPoint(pd.position));
+        clickSubject.OnNext(camera.ScreenToWorldPoint(pd.position));
     }
 }

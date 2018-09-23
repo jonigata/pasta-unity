@@ -14,7 +14,10 @@ public class LocalHumanPlayer : MonoBehaviour {
     }
 
     void Deploy(Vector2 v) {
-        if (pile.selected == null) { return; }
+        if (pile.selected == null) {
+            Debug.Log("No card selected");
+            return;
+        }
         
         BattleCore.Deploy(avatar, pile.selected.model, v);
         pile.Select(null);

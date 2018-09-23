@@ -10,6 +10,7 @@ public class Pile : MonoBehaviour {
 
     public void Select(Card card) {
         selected = card;
+        Debug.Log($"Select card: {card}");
     }
 }
 

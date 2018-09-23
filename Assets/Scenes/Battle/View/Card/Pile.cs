@@ -7,10 +7,13 @@ namespace View {
 
 public class Pile : MonoBehaviour {
     [NonSerialized] public Card selected;
+    [SerializeField] ExclusiveGroup group;
 
     public void Select(Card card) {
         selected = card;
         Debug.Log($"Select card: {card}");
+
+        group.Select(card.GetComponent<ExclusiveGroupItem>());
     }
 }
 

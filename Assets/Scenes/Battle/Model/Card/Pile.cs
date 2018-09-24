@@ -49,6 +49,7 @@ public class Pile : MonoBehaviour {
         if (shuffle) {
             cards = cards.OrderBy(i => Guid.NewGuid()).ToList();
         }
+        restructureSubject.OnNext(Unit.Default);
     }
 }
 

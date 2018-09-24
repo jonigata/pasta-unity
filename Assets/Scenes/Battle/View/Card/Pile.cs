@@ -27,6 +27,11 @@ public class Pile : MonoBehaviour {
     }
 
     void Restructure() {
+        int i = 0 ;
+        foreach (Card card in GetComponentsInChildren<Card>()) {
+            card.model = model.Cards[i++];
+        }
+        
     }
 }
 

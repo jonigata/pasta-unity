@@ -20,7 +20,8 @@ public class Stadium : MonoBehaviour {
     Subject<Pawn> deploySubject = new Subject<Pawn>();
     public IObservable<Pawn> OnDeploy { get { return deploySubject; } }
     
-    public void Deploy(Avatar avatar, CardKlass ck, Vector2 p) {
+    public void Deploy(Avatar avatar, Card card, Vector2 p) {
+        var ck = card.Klass;
         Debug.LogFormat("Deploying {0}", ck);
         if (ck != CardKlass.Basecamp) {
             if (!IsInTheFriendTerritory(avatar, p)) {
@@ -28,7 +29,7 @@ public class Stadium : MonoBehaviour {
                 return;
             }
 
-            if (!avatar.castle.ConsumeEnergy(3.0f)) {
+            if (!avatar.castle.ConsumeEnergy(card.Cost)) {
                 Debug.Log("Not enough energy");
                 return;
             }

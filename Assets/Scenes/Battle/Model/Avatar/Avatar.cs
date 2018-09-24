@@ -14,6 +14,7 @@ public class Avatar : MonoBehaviour {
     public Castle castle;
     public TeamTag teamTag;
     public Pile pile;
+    public Card basecamp;
 
 }
 

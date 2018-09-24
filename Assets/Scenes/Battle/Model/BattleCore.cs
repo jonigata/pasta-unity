@@ -23,13 +23,13 @@ public class BattleCore : MonoBehaviour {
         instance = null;
     }
 
-    void zDeploy(Model.Avatar avatarModel, Vector2 p) {
-        stadiumModel.Deploy(avatarModel, Model.CardKlass.Knife, p);
+    void zDeploy(Model.Avatar avatarModel, Model.Card card, Vector2 p) {
+        stadiumModel.Deploy(avatarModel, card, p);
     }
 
     public static void Deploy(
         Model.Avatar avatarModel, Model.Card card, Vector2 p) {
-        instance.zDeploy(avatarModel, p);
+        instance.zDeploy(avatarModel, card, p);
     }
 
     void Start() {
@@ -37,8 +37,8 @@ public class BattleCore : MonoBehaviour {
         betaAvatar.pile.SetUpWithHierarchy(true);
 
         stadiumModel.Deploy(
-            alphaAvatar, Model.CardKlass.Basecamp, new Vector2(-180, -180));
+            alphaAvatar, alphaAvatar.basecamp, new Vector2(-180, -180));
         stadiumModel.Deploy(
-            betaAvatar, Model.CardKlass.Basecamp, new Vector2(180, 180));
+            betaAvatar, betaAvatar.basecamp, new Vector2(180, 180));
     }
 }

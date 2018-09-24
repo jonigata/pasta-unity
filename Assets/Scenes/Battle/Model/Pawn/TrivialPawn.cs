@@ -18,6 +18,7 @@ public class TrivialPawn : Pawn {
 
     void Start() {
         initialLife = life;
+        Debug.Log($"initial life = {initialLife}");
     }
 
     public override void UpdateManually(float elapsed) {

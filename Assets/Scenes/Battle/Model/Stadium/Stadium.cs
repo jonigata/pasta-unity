@@ -15,6 +15,12 @@ public class Stadium : MonoBehaviour {
     [SerializeField] Castle alphaCastle;
     [SerializeField] Castle betaCastle;
 
+    [SerializeField] Avatar alphaAvatar;
+    [SerializeField] Avatar betaAvatar;
+
+    public Avatar AlphaAvatar { get { return alphaAvatar; } }
+    public Avatar BetaAvatar { get { return betaAvatar; } }
+
     List<Pawn> pawns = new List<Pawn>();
     
     Subject<Pawn> deploySubject = new Subject<Pawn>();

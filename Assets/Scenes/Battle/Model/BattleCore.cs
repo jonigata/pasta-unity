@@ -8,10 +8,6 @@ public class BattleCore : MonoBehaviour {
     public static BattleCore instance;
 
     [SerializeField] Model.Stadium stadiumModel;
-    [SerializeField] View.Stadium stadiumView;
-
-    [SerializeField] Model.Avatar alphaAvatar;
-    [SerializeField] Model.Avatar betaAvatar;
 
     void Awake() {
         Assert.IsNull(instance);
@@ -33,12 +29,13 @@ public class BattleCore : MonoBehaviour {
     }
 
     void Start() {
-        alphaAvatar.pile.SetUpWithHierarchy(true);
-        betaAvatar.pile.SetUpWithHierarchy(true);
+        var aa = stadiumModel.AlphaAvatar;
+        var ba = stadiumModel.BetaAvatar;
 
-        stadiumModel.Deploy(
-            alphaAvatar, alphaAvatar.basecamp, new Vector2(-180, -180));
-        stadiumModel.Deploy(
-            betaAvatar, betaAvatar.basecamp, new Vector2(180, 180));
+        aa.pile.SetUpWithHierarchy(true);
+        ba.pile.SetUpWithHierarchy(true);
+
+        stadiumModel.Deploy(aa, aa.basecamp, new Vector2(-180, -180));
+        stadiumModel.Deploy(ba, ba.basecamp, new Vector2(180, 180));
     }
 }

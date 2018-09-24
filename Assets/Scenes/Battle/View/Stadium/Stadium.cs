@@ -11,11 +11,16 @@ public class Stadium : MonoBehaviour {
     [SerializeField] Pawn bluePawnViewPrefab;
     [SerializeField] Pawn redPawnViewPrefab;
 
-    List<Pawn> pawns = new List<Pawn>();
+    [SerializeField] Pile alphaPile;
+    [SerializeField] Pile betaPile;
 
+    List<Pawn> pawns = new List<Pawn>();
 
     void Awake() {
         stadiumModel.OnDeploy.Subscribe(Deploy).AddTo(gameObject);
+
+        alphaPile.SetUp(stadiumModel.AlphaAvatar.pile);
+        // betaPile.SetUp(stadiumModel.BetaAvatar.pile);
     }
 
     public void Deploy(Model.Pawn pawnModel) {

@@ -330,9 +330,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stadiumModel: {fileID: 919597448}
-  stadiumView: {fileID: 439331272}
-  alphaAvatar: {fileID: 1771854828}
-  betaAvatar: {fileID: 1021719212}
 --- !u!4 &162237980
 Transform:
   m_ObjectHideFlags: 0
@@ -1014,6 +1011,8 @@ MonoBehaviour:
     type: 2}
   redPawnViewPrefab: {fileID: 114918516304463554, guid: fad7ef52fe52646f7b47c2fb9687234a,
     type: 2}
+  alphaPile: {fileID: 1758497436}
+  betaPile: {fileID: 0}
 --- !u!1 &481236884
 GameObject:
   m_ObjectHideFlags: 0
@@ -1784,6 +1783,8 @@ MonoBehaviour:
   partawnPool: {fileID: 776080279}
   alphaCastle: {fileID: 1713450115}
   betaCastle: {fileID: 215360622}
+  alphaAvatar: {fileID: 1771854828}
+  betaAvatar: {fileID: 1021719212}
 --- !u!4 &919597449
 Transform:
   m_ObjectHideFlags: 0
@@ -1905,7 +1906,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1118673998
 MonoBehaviour:
   m_ObjectHideFlags: 0

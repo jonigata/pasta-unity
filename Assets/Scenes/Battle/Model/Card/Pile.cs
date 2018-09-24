@@ -17,6 +17,11 @@ public class Pile : MonoBehaviour {
     Subject<Card> invokeSubject = new Subject<Card>();
     public IObservable<Card> OnInvoke { get { return invokeSubject; } }
 
+    Subject<Unit> restructureSubject = new Subject<Unit>();
+    public IObservable<Unit> OnRestructure {
+        get { return restructureSubject; }
+    }
+
     const int handCount = 4;
 
     void MoveCardToLast(Card targetCard) {
@@ -32,6 +37,7 @@ public class Pile : MonoBehaviour {
                 cards.Add(targetCard);
             }
         }
+        restructureSubject.OnNext(Unit.Default);
     }
 
     public void AddCard(Card card) {

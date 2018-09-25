@@ -8,7 +8,6 @@ using System.Linq;
 namespace Model {
 
 public class Stadium : MonoBehaviour {
-    [SerializeField] Pawn pawnPrefab;
     [SerializeField] Basecamp basecampPrefab;
     [SerializeField] PartawnPool partawnPool;
 
@@ -22,9 +21,18 @@ public class Stadium : MonoBehaviour {
     public Avatar BetaAvatar { get { return betaAvatar; } }
 
     List<Pawn> pawns = new List<Pawn>();
+
+    Dictionary<CardKlass, Pawn> prefabs = new Dictionary<CardKlass, Pawn>();
     
     Subject<Pawn> deploySubject = new Subject<Pawn>();
     public IObservable<Pawn> OnDeploy { get { return deploySubject; } }
+
+    void Awake() {
+        foreach (CardKlass k in Enum.GetValues(typeof(CardKlass))) {
+            Debug.Log($"PawnModel_{k}");
+            prefabs[k] = Resources.Load<Pawn>($"PawnModel_{k}");
+        }
+    }
     
     public void Deploy(Avatar avatar, Card card, Vector2 p) {
         var ck = card.Klass;
@@ -41,14 +49,19 @@ public class Stadium : MonoBehaviour {
             }
         }
 
-        Pawn pawn = Instantiate(GetPawnPrefabByType(ck), transform, false);
-        pawn.partawnPool = partawnPool;
-        pawn.location = p;
-        pawn.teamTag = avatar.teamTag;
-        pawn.life = 20;
-        pawns.Add(pawn);
+        Pawn prefab = GetPawnPrefabByType(ck);
+        if (prefab != null) {
+            Pawn pawn = Instantiate(prefab, transform, false);
+            pawn.partawnPool = partawnPool;
+            pawn.location = p;
+            pawn.teamTag = avatar.teamTag;
+            pawn.life = 20;
+            pawns.Add(pawn);
 
-        deploySubject.OnNext(pawn);
+            deploySubject.OnNext(pawn);
+        } else {
+            Debug.Log($"Can't find prefab: {ck}");
+        }
     }
 
     void Update() {
@@ -72,9 +85,8 @@ public class Stadium : MonoBehaviour {
             case CardKlass.Basecamp:
                 return basecampPrefab;
             default:
-                return pawnPrefab;
+                return prefabs[ck];
         }
-        return pawnPrefab;
    }
 
     bool IsInTheFriendTerritory(Avatar a, Vector2 p) {

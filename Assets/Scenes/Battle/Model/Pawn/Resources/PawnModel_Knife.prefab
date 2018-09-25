@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4118693111343804}
   - component: {fileID: 114689736793116036}
   m_Layer: 0
-  m_Name: PawnModel
+  m_Name: PawnModel_Knife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

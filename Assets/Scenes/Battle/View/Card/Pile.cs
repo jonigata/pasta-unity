@@ -20,18 +20,22 @@ public class Pile : MonoBehaviour {
 
     public void Select(Card card) {
         selected = card;
-        Debug.Log($"Select card: {card}");
-        if (card == null) { return; }
+        if (card != null) {
+            Debug.Log($"Select card: {card.model.Klass}");
+        } else {
+            Debug.Log($"Unselect card");
+        }
 
-        group.Select(card.GetComponent<ExclusiveGroupItem>());
+        group.Select(card?.GetComponent<ExclusiveGroupItem>());
     }
 
     void Restructure() {
+        Debug.Log("Restructure");
         int i = 0 ;
         foreach (Card card in GetComponentsInChildren<Card>()) {
             card.model = model.Cards[i++];
         }
-        
+        Select(null);
     }
 }
 

@@ -59,6 +59,7 @@ public class Stadium : MonoBehaviour {
             pawns.Add(pawn);
 
             deploySubject.OnNext(pawn);
+            avatar.pile.MoveCardToLast(card);
         } else {
             Debug.Log($"Can't find prefab: {ck}");
         }

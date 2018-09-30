@@ -14,6 +14,7 @@ public class TrivialPawn : Pawn {
     [SerializeField] public float partawnLife;
     [SerializeField] public int way = 1;
     [SerializeField] public float wayRange;
+    [SerializeField] public float jitter;
     
     float emitTimer;
     float initialLife;
@@ -52,6 +53,7 @@ public class TrivialPawn : Pawn {
                 r += - wayRange * 0.5f + (wayRange * i / (way - 1)) ;
                 Debug.Log(r);
             }
+            r += UnityEngine.Random.Range(0, jitter) - jitter * 0.5f;
 
             Partawn p = partawnPool.Emit(
                 teamTag, location, r,

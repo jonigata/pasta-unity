@@ -33,7 +33,7 @@ public class Pile : MonoBehaviour {
         Debug.Log("Restructure");
         int i = 0 ;
         foreach (Card card in GetComponentsInChildren<Card>()) {
-            card.model = model.Cards[i++];
+            card.SetModel(model.Cards[i++]);
         }
         Select(null);
     }

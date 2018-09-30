@@ -8,13 +8,13 @@ namespace Model {
 public enum CardKlass {
     Basecamp,
     Knife,
-    Tower,
+    Staff,
     Sword,
     Bow,
     Axe,
     Spear,
     Shield,
-    Halberd,
+    Mace,
 }
 
 }

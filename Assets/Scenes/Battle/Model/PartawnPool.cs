@@ -45,7 +45,7 @@ public class PartawnPool : MonoBehaviour {
                 var diff = pj.location - pi.location;
                 var dSq = diff.sqrMagnitude;
 
-                if (dSq < thresholdSq) {
+                if (0.001f < dSq && dSq < thresholdSq) {
                     contacts[affectedPairs].diff = diff;
                     contacts[affectedPairs].dSq = dSq;
                     contacts[affectedPairs].a = pi;

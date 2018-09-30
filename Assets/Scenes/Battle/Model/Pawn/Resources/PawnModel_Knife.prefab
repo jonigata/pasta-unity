@@ -51,9 +51,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11306c92de372454887f0f126b8756a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  territory: 90
-  lifeSpan: 2
+  territory: 40
+  lifeSpan: 15
   emitInterval: 1
   partawnSpeed: 10
   partawnDps: 1
   partawnLife: 15
+  way: 1
+  wayRange: 0

@@ -12,6 +12,9 @@ public class Pile : MonoBehaviour {
 
     Model.Pile model;
 
+    Subject<Card> selectSubject = new Subject<Card>();
+    public IObservable<Card> OnSelect { get { return selectSubject; } }
+
     public void SetUp(Model.Pile model) {
         this.model = model;
 
@@ -27,6 +30,7 @@ public class Pile : MonoBehaviour {
         }
 
         group.Select(card?.GetComponent<ExclusiveGroupItem>());
+        selectSubject.OnNext(card);
     }
 
     void Restructure() {

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4987791726172836}
   - component: {fileID: 114763987207641082}
   m_Layer: 0
-  m_Name: PawnModel_Shield 1
+  m_Name: PawnModel_Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -9,6 +9,7 @@ namespace View {
 public class Pawn : MonoBehaviour {
     [SerializeField] ParticleSystem particleSystem;
     [SerializeField] GameObject territory;
+    [SerializeField] GameObject appearance;
 
     ParticleSystem.Particle[] particles;
     public int particleCount;
@@ -34,6 +35,11 @@ public class Pawn : MonoBehaviour {
             Vector3.one * 2.0f * pawnModel.territory;
 
         pawnModel.OnDie.Subscribe(
+            u => {
+                appearance.SetActive(false);
+            });
+
+        pawnModel.OnLost.Subscribe(
             u => {
                 Destroy(gameObject);
             }).AddTo(this);

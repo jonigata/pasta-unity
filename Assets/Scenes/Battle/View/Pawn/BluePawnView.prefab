@@ -173,6 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particleSystem: {fileID: 198249064386669850}
   territory: {fileID: 1301358795956276}
+  appearance: {fileID: 1297386120821824}
   particleCount: 0
 --- !u!198 &198249064386669850
 ParticleSystem:

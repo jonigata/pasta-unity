@@ -27,6 +27,8 @@ public class TrivialPawn : Pawn {
     public override void UpdateManually(float elapsed) {
         base.UpdateManually(elapsed);
 
+        if (died) { return; }
+
         emitTimer += elapsed;
         if (emitInterval <= emitTimer) {
             EmitPartawns();

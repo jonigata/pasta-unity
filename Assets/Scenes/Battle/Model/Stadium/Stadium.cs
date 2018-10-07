@@ -75,7 +75,10 @@ public class Stadium : MonoBehaviour {
         foreach (var pawn in pawns) {
             pawn.UpdateManually(Time.deltaTime);
         }
-        pawns = pawns.Where(x => !x.DieIfFatallyInjured()).ToList();
+        foreach (var pawn in pawns) {
+            pawn.DieIfFatallyInjured();
+        }
+        pawns = pawns.Where(x => !x.BeLostIfDiedAndAllChildrenDied()).ToList();
 
         alphaCastle.UpdateManually(Time.deltaTime);
         betaCastle.UpdateManually(Time.deltaTime);

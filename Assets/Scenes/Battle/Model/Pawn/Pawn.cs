@@ -21,7 +21,12 @@ public abstract class Pawn : MonoBehaviour {
     protected Subject<Unit> dieSubject = new Subject<Unit>();
     public IObservable<Unit> OnDie { get { return dieSubject; } }
 
+    protected Subject<Unit> lostSubject = new Subject<Unit>();
+    public IObservable<Unit> OnLost { get { return lostSubject; } }
+
     [NonSerialized] public List<Partawn> partawns = new List<Partawn>();
+
+    protected bool died;
 
     public virtual void UpdateManually(float elapsed) {
         foreach (var p in partawns) {
@@ -35,10 +40,18 @@ public abstract class Pawn : MonoBehaviour {
         partawnPool.CollectAttack(this);
     }
 
-    public bool DieIfFatallyInjured() {
+    public virtual void DieIfFatallyInjured() {
         if (life <= 0) {
+            died = true;
             dieSubject.OnNext(Unit.Default);
             dieSubject.OnCompleted();
+        }
+    }
+
+    public bool BeLostIfDiedAndAllChildrenDied() {
+        if (died && partawns.Count == 0) {
+            lostSubject.OnNext(Unit.Default);
+            lostSubject.OnCompleted();
             Destroy(gameObject);
             return true;
         }

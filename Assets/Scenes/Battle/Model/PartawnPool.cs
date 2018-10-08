@@ -11,27 +11,28 @@ public class PartawnPool : MonoBehaviour {
     public float threshold = 10.0f;
     public float powerFactor = 0.01f;
 
-    // for debug
-    public int affectedPairs = 0;
 
     List<Partawn> partawns = new List<Partawn>();
+    int idSource;
 
     public Partawn Emit(
         TeamTag teamTag,
         Vector2 location, float rotation,float speed, float dps, float life) {
-        Partawn p = new Partawn(teamTag, location, rotation, speed, dps, life);
+        Partawn p = new Partawn(
+            idSource++, teamTag, location, rotation, speed, dps, life);
         partawns.Add(p);
         return p;
     }
 
-    struct Contact {
+    public struct Contact {
         public Vector2 diff;
         public float dSq;
         public Partawn a;
         public Partawn b;
     }
 
-    Contact[] contacts = new Contact[65536];
+    [NonSerialized] public int affectedPairs = 0;
+    [NonSerialized] public Contact[] contacts = new Contact[65536];
 
     void Update() {
         float elapsed = Time.deltaTime;
@@ -62,8 +63,6 @@ public class PartawnPool : MonoBehaviour {
             if (c.a.teamTag != c.b.teamTag) {
                 c.a.life -= c.b.dps * elapsed;
                 c.b.life -= c.a.dps * elapsed;
-                c.a.damaged = true;
-                c.b.damaged = true;
             }
 
         }

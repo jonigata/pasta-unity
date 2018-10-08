@@ -69,7 +69,7 @@ public class Stadium : MonoBehaviour {
     void Update() {
         foreach (var pawn in pawns) {
             if (pawn.aimTarget == null) {
-                pawn.aimTarget = GetNearesetEnemy(pawn);
+                pawn.aimTarget = GetNearestEnemy(pawn);
             }
         }
 
@@ -104,12 +104,13 @@ public class Stadium : MonoBehaviour {
         return false;
     }
 
-    Pawn GetNearesetEnemy(Pawn source) {
+    Pawn GetNearestEnemy(Pawn source) {
         float distance = Single.MaxValue;
         Pawn target = null;
         foreach (var pawn in pawns) {
             if (pawn == source) { continue; }
             if (pawn.teamTag == source.teamTag) { continue; }
+            if (pawn.died) { continue; }
             var d = Vector2.Distance(pawn.location, source.location);
             if (d < distance) {
                 distance = d;

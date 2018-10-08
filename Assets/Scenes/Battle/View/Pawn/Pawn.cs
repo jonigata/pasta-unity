@@ -36,8 +36,9 @@ public class Pawn : MonoBehaviour {
 
         pawnModel.OnDie.Subscribe(
             u => {
+                territory.SetActive(false);
                 appearance.SetActive(false);
-            });
+            }).AddTo(this);
 
         pawnModel.OnLost.Subscribe(
             u => {

@@ -34,18 +34,18 @@ public class Stadium : MonoBehaviour {
         }
     }
     
-    public void Deploy(Avatar avatar, Card card, Vector2 p) {
+    public bool Deploy(Avatar avatar, Card card, Vector2 p) {
         var ck = card.Klass;
         Debug.LogFormat("Deploying {0}", ck);
         if (ck != CardKlass.Basecamp) {
             if (!IsInTheFriendTerritory(avatar, p)) {
                 Debug.Log("Not in the friend territory");
-                return;
+                return false;
             }
 
             if (!avatar.castle.ConsumeEnergy(card.Cost)) {
                 Debug.Log("Not enough energy");
-                return;
+                return false;
             }
         }
 
@@ -63,6 +63,7 @@ public class Stadium : MonoBehaviour {
         } else {
             Debug.Log($"Can't find prefab: {ck}");
         }
+        return true;
     }
 
     void Update() {

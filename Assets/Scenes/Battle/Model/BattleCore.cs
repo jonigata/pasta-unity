@@ -19,13 +19,13 @@ public class BattleCore : MonoBehaviour {
         instance = null;
     }
 
-    void zDeploy(Model.Avatar avatarModel, Model.Card card, Vector2 p) {
-        stadiumModel.Deploy(avatarModel, card, p);
+    bool zDeploy(Model.Avatar avatarModel, Model.Card card, Vector2 p) {
+        return stadiumModel.Deploy(avatarModel, card, p);
     }
 
-    public static void Deploy(
+    public static bool Deploy(
         Model.Avatar avatarModel, Model.Card card, Vector2 p) {
-        instance.zDeploy(avatarModel, card, p);
+        return instance.zDeploy(avatarModel, card, p);
     }
 
     void Start() {

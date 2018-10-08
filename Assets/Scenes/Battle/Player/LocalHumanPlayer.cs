@@ -19,7 +19,8 @@ public class LocalHumanPlayer : MonoBehaviour {
             return;
         }
         
-        BattleCore.Deploy(avatar, pile.selected.model, v);
-        pile.Select(null);
+        if (BattleCore.Deploy(avatar, pile.selected.model, v)) {
+            pile.Select(null);
+        }
     }
 }

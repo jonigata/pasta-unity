@@ -3,6 +3,7 @@ using UnityEngine.Assertions;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Model {
 
@@ -62,6 +63,7 @@ public class PartawnPool : MonoBehaviour {
                 c.a.life -= c.b.dps * elapsed;
                 c.b.life -= c.a.dps * elapsed;
             }
+
         }
 
         // 押し合い(力計算)
@@ -79,6 +81,8 @@ public class PartawnPool : MonoBehaviour {
             pi.location += pi.force;
             pi.force = Vector2.zero;
         }
+
+        partawns.RemoveAll(x => x.IsFatallyInjured());
     }
 
     public void CollectAttack(Pawn pawn) {

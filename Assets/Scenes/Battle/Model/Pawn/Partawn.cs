@@ -12,6 +12,7 @@ public class Partawn {
     public float rotation;
     public float dps;
     public float life;
+    public bool damaged;
     float speed;
 
     Vector2 direction;

@@ -62,6 +62,8 @@ public class PartawnPool : MonoBehaviour {
             if (c.a.teamTag != c.b.teamTag) {
                 c.a.life -= c.b.dps * elapsed;
                 c.b.life -= c.a.dps * elapsed;
+                c.a.damaged = true;
+                c.b.damaged = true;
             }
 
         }
@@ -96,6 +98,8 @@ public class PartawnPool : MonoBehaviour {
             var dSq = diff.sqrMagnitude;
             if (dSq < thresholdSq) {
                 pawn.life -= pi.dps * Time.deltaTime;
+                pawn.damaged = true;
+                pi.life = 0;
             }
         }
     }

@@ -27,6 +27,7 @@ public abstract class Pawn : MonoBehaviour {
     [NonSerialized] public List<Partawn> partawns = new List<Partawn>();
 
     [NonSerialized] public bool died;
+    [NonSerialized] public bool damaged;
 
     public virtual void UpdateManually(float elapsed) {
         foreach (var p in partawns) {
@@ -37,7 +38,9 @@ public abstract class Pawn : MonoBehaviour {
         // TODO: PartawnPoolに移動したほうがよいのでは
         partawns.RemoveAll(x => x.IsFatallyInjured());
 
-        partawnPool.CollectAttack(this);
+        if (!died) {
+            partawnPool.CollectAttack(this);
+        }
     }
 
     public virtual void DieIfFatallyInjured() {

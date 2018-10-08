@@ -10,10 +10,12 @@ public class Pawn : MonoBehaviour {
     [SerializeField] ParticleSystem particleSystem;
     [SerializeField] GameObject territory;
     [SerializeField] GameObject appearance;
+    [SerializeField] ParticleSystem hitEffect;
 
     ParticleSystem.Particle[] particles;
     public int particleCount;
     Model.Pawn pawnModel;
+    bool hitEffectPlaying;
 
     void Start() {
         particles = new ParticleSystem.Particle[512];
@@ -62,6 +64,16 @@ public class Pawn : MonoBehaviour {
         }
 
         particleSystem.SetParticles(particles, pawnModel.partawns.Count);
+
+        if (pawnModel.damaged) {
+            if (!hitEffectPlaying) {
+                hitEffect.Play();
+                hitEffectPlaying = true;
+                pawnModel.damaged = false;
+            } else if (hitEffect.isPlaying) {
+                hitEffectPlaying = false;
+            }
+        }
     }
 	
 }

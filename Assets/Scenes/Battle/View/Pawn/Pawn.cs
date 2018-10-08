@@ -68,10 +68,12 @@ public class Pawn : MonoBehaviour {
         if (pawnModel.damaged) {
             if (!hitEffectPlaying) {
                 hitEffect.Play();
+                Debug.Log("Play");
                 hitEffectPlaying = true;
                 pawnModel.damaged = false;
-            } else if (hitEffect.isPlaying) {
+            } else if (!hitEffect.isPlaying) {
                 hitEffectPlaying = false;
+                Debug.Log("Stop");
             }
         }
     }

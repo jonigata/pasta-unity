@@ -11,7 +11,6 @@ public abstract class Pawn : MonoBehaviour {
 
     [NonSerialized] public Vector2 location;
     [NonSerialized] public PartawnPool partawnPool;
-    [NonSerialized] public Pawn aimTarget;
     [NonSerialized] public TeamTag teamTag;
     [NonSerialized] public float life;
 
@@ -28,6 +27,21 @@ public abstract class Pawn : MonoBehaviour {
 
     [NonSerialized] public bool died;
     [NonSerialized] public bool damaged;
+
+    Pawn aimTarget_;
+    IDisposable aimTargetSubscription;
+    public Pawn aimTarget {
+        get { return aimTarget_; }
+        set {
+            if (aimTarget_ != null) {
+                aimTargetSubscription.Dispose();
+            }
+            aimTarget_ = value;
+            aimTargetSubscription = aimTarget_.OnDie.Subscribe(
+                u => aimTarget_ = null).AddTo(gameObject);
+        }
+    }
+
 
     public virtual void UpdateManually(float elapsed) {
         foreach (var p in partawns) {

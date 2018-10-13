@@ -96,7 +96,7 @@ public class PartawnPool : MonoBehaviour {
             var diff = pawn.location - pi.location;
             var dSq = diff.sqrMagnitude;
             if (dSq < thresholdSq) {
-                pawn.life -= pi.dps * Time.deltaTime;
+                pawn.life -= pi.dps * pi.life;
                 pawn.damaged = true;
                 pi.life = 0;
             }

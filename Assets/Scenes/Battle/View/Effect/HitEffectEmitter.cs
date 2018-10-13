@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class HitEffectEmitter : MonoBehaviour {
     [SerializeField] Model.PartawnPool pool;
-    [SerializeField] PartawnHitEffect hitEffectPrefab;
+    [SerializeField] RecycleBin recycleBin;
 
     Dictionary<long, PartawnHitEffect> effects =
         new Dictionary<long, PartawnHitEffect>();
@@ -18,10 +18,16 @@ public class HitEffectEmitter : MonoBehaviour {
 
             long c = (ao.id << 32) | bo.id;
             if (!effects.ContainsKey(c)) {
-                PartawnHitEffect hitEffect = Instantiate(hitEffectPrefab);
+                GameObject o = recycleBin.Allocate();
+                if (o == null) { break; }
+                o.SetActive(true);
+                PartawnHitEffect hitEffect = o.GetComponent<PartawnHitEffect>();
                 hitEffect.Play(
                     ao.location, bo.location,
-                    () => effects.Remove(c));
+                    () => {
+                        effects.Remove(c);
+                        recycleBin.Deallocate(o);
+                    });
             }
         }
     }

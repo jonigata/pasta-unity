@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UniRx;
 
 public class PartawnHitEffect : MonoBehaviour {
     public ParticleSystem particleSystem;
@@ -12,12 +13,14 @@ public class PartawnHitEffect : MonoBehaviour {
         transform.position = (p0+p1)*0.5f;
         this.onStop = onStop;
         particleSystem.Play();
+        Observable.Timer(TimeSpan.FromMilliseconds(200))
+            .Subscribe(u => OnStop()).AddTo(gameObject);
+
     }
 
     public void OnStop() {
         if (onStop != null) {
             onStop();
         }
-        Destroy(gameObject);
     }
 }

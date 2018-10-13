@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   territory: 40
+  life: 80
   lifeSpan: 15
   emitInterval: 2
   partawnSpeed: 7
@@ -59,3 +60,4 @@ MonoBehaviour:
   partawnLife: 15
   way: 3
   wayRange: 60
+  jitter: 0

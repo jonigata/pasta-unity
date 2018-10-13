@@ -15,7 +15,7 @@ public class Pawn : MonoBehaviour {
     ParticleSystem.Particle[] particles;
     public int particleCount;
     Model.Pawn pawnModel;
-    bool hitEffectPlaying;
+    float hitEffectTime;
 
     void Start() {
         particles = new ParticleSystem.Particle[512];
@@ -65,17 +65,18 @@ public class Pawn : MonoBehaviour {
 
         particleSystem.SetParticles(particles, pawnModel.partawns.Count);
 
-        if (pawnModel.damaged) {
-            if (!hitEffectPlaying) {
+        if (hitEffectTime == 0) {
+            if (pawnModel.damaged) {
+                hitEffectTime = 0.5f;
                 hitEffect.Play();
-                Debug.Log("Play");
-                hitEffectPlaying = true;
-                pawnModel.damaged = false;
-            } else if (!hitEffect.isPlaying) {
-                hitEffectPlaying = false;
-                Debug.Log("Stop");
+            }
+        } else {
+            hitEffectTime -= Time.deltaTime;
+            if (hitEffectTime < 0) {
+                hitEffectTime = 0;
             }
         }
+        pawnModel.damaged = false;
     }
 	
 }

@@ -751,6 +751,7 @@ GameObject:
   m_Component:
   - component: {fileID: 262360633}
   - component: {fileID: 262360634}
+  - component: {fileID: 262360635}
   m_Layer: 0
   m_Name: HitEffectEmitter
   m_TagString: Untagged
@@ -783,8 +784,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pool: {fileID: 776080279}
-  hitEffectPrefab: {fileID: 114024981782393518, guid: 9324c699d964b7f4e9051a3684952b07,
-    type: 2}
+  recycleBin: {fileID: 262360635}
+--- !u!114 &262360635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 262360632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ec71b1fe75313a48b2d2c85beca4a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1689881045332604, guid: 9324c699d964b7f4e9051a3684952b07, type: 2}
+  prepareCount: 20
 --- !u!1 &280696477
 GameObject:
   m_ObjectHideFlags: 0

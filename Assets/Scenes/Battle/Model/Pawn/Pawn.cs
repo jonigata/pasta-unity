@@ -12,7 +12,7 @@ public abstract class Pawn : MonoBehaviour {
     [NonSerialized] public Vector2 location;
     [NonSerialized] public PartawnPool partawnPool;
     [NonSerialized] public TeamTag teamTag;
-    [NonSerialized] public float life;
+    public float life; // for debug
 
     protected Subject<Partawn> emitSubject = new Subject<Partawn>();
     public IObservable<Partawn> OnEmit { get { return emitSubject; } }

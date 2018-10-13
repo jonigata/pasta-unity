@@ -7,7 +7,7 @@ public class PartawnHitEffectStopReceiver : MonoBehaviour {
     [SerializeField] PartawnHitEffect hitEffect;
 
     public void OnParticleSystemStopped() {
-        Debug.Log("OnParticleSystemStopped");
-        hitEffect.OnStop();
+        // Debug.Log("OnParticleSystemStopped");
+        // hitEffect.OnStop();
     }
 }

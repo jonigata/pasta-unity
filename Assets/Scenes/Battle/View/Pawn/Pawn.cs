@@ -10,6 +10,7 @@ public class Pawn : MonoBehaviour {
     [SerializeField] ParticleSystem particleSystem;
     [SerializeField] GameObject territory;
     [SerializeField] GameObject appearance;
+    [SerializeField] SpriteRenderer icon;
     [SerializeField] ParticleSystem hitEffect;
 
     ParticleSystem.Particle[] particles;
@@ -35,6 +36,13 @@ public class Pawn : MonoBehaviour {
         transform.localPosition = new Vector3(pos.x, pos.y, -0.1f);
         territory.transform.localScale =
             Vector3.one * 2.0f * pawnModel.territory;
+
+        var filename = $"CardImages/{pawnModel.klass}";
+        var sprite = Resources.Load<Sprite>(filename);
+        if (sprite == null) {
+            Debug.Log($"cant't find such file: {filename}");
+        }
+        icon.sprite = sprite;
 
         pawnModel.OnDie.Subscribe(
             u => {

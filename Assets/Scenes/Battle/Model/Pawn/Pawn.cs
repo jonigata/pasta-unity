@@ -27,6 +27,7 @@ public abstract class Pawn : MonoBehaviour {
 
     [NonSerialized] public bool died;
     [NonSerialized] public bool damaged;
+    [NonSerialized] public CardKlass klass;
 
     Pawn aimTarget_;
     IDisposable aimTargetSubscription;

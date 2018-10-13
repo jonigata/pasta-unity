@@ -56,6 +56,7 @@ public class Stadium : MonoBehaviour {
             pawn.location = p;
             pawn.teamTag = avatar.teamTag;
             pawn.life = 20;
+            pawn.klass = ck;
             pawns.Add(pawn);
 
             deploySubject.OnNext(pawn);

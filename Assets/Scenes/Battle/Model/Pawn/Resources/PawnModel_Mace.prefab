@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   territory: 40
-  life: 90
+  life: 450
   lifeSpan: 15
   emitInterval: 3
   partawnSpeed: 5

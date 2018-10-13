@@ -356,6 +356,7 @@ MonoBehaviour:
   particleSystem: {fileID: 198071795696286064}
   territory: {fileID: 1783647890777128}
   appearance: {fileID: 1679228380706248}
+  icon: {fileID: 212681483871163748}
   hitEffect: {fileID: 198191524571967372}
   particleCount: 0
 --- !u!198 &198071795696286064

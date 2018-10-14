@@ -58,7 +58,7 @@ MonoBehaviour:
   lifeSpan: 15
   emitInterval: 2
   partawnSpeed: 7
-  partawnDps: 5
+  partawnDps: 10
   partawnLife: 15
   way: 3
   wayRange: 60

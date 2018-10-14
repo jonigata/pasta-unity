@@ -12,6 +12,7 @@ public class Partawn {
     public Vector2 force;
     public float rotation;
     public float dps;
+    public float initialLife;
     public float life;
     float speed;
 
@@ -27,6 +28,7 @@ public class Partawn {
         this.rotation = rotation;
         this.speed = speed;
         this.dps = dps;
+        this.initialLife = life;
         this.life = life;
 
         var rad = Mathf.Deg2Rad * rotation;

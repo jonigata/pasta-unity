@@ -70,6 +70,8 @@ public class Pawn : MonoBehaviour {
                 partawn.location.y,
                 -0.5f);
             particles[i].rotation = -partawn.rotation + 90.0f;
+            particles[i].startColor = new Color(
+                1.0f,1.0f,1.0f,partawn.life / partawn.initialLife);
             i++;
         }
 

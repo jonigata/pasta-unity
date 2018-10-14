@@ -53,10 +53,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   territory: 40
   life: 200
+  useCustomAiOffset: 0
+  aiOffset: 0
   lifeSpan: 15
   emitInterval: 1
   partawnSpeed: 10
-  partawnDps: 1
+  partawnDps: 2
   partawnLife: 15
   way: 1
   wayRange: 0

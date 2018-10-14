@@ -24,6 +24,10 @@ public class Pile : MonoBehaviour {
 
     const int handCount = 4;
 
+    public int HandCount {
+        get { return cards.Count < handCount ? cards.Count : handCount; }
+    }
+
     public void MoveCardToLast(Card targetCard) {
         // 抜いた場所に入る
         if (cards.Count <= handCount) { return; }

@@ -252,6 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 0
   klass: 0
+  pawn: {fileID: 0}
 --- !u!1 &121030945
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 6
   klass: 5
+  pawn: {fileID: 0}
 --- !u!1 &162237978
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,6 +527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 7
   klass: 6
+  pawn: {fileID: 0}
 --- !u!1 &214284182
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,6 +1027,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 5
   klass: 4
+  pawn: {fileID: 0}
 --- !u!1 &337422639
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,6 +1070,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   klass: 8
+  pawn: {fileID: 114704933176943994, guid: 13acbe926d520c9489020dfdaa7c42cc, type: 2}
 --- !u!1 &423111347
 GameObject:
   m_ObjectHideFlags: 0
@@ -1990,6 +1995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   klass: 4
+  pawn: {fileID: 114680104397975604, guid: 36f0a092166860d409c270d16dc39c5d, type: 2}
 --- !u!4 &792299511 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4174520951208798, guid: 247fb37eda7714d78bd7378eda3e23c2,
@@ -2097,6 +2103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   klass: 6
+  pawn: {fileID: 114689736793116036, guid: 7ac32dd2106bf754bb5cfced39233929, type: 2}
 --- !u!1 &919597447
 GameObject:
   m_ObjectHideFlags: 0
@@ -2190,6 +2197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   klass: 3
+  pawn: {fileID: 0}
 --- !u!1 &1021719211
 GameObject:
   m_ObjectHideFlags: 0
@@ -2325,6 +2333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   klass: 8
+  pawn: {fileID: 0}
 --- !u!1001 &1124627179
 Prefab:
   m_ObjectHideFlags: 0
@@ -2409,6 +2418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   klass: 2
+  pawn: {fileID: 114513461449608664, guid: 7be4d9ee2449c844399cc2011105357f, type: 2}
 --- !u!1 &1210993186
 GameObject:
   m_ObjectHideFlags: 0
@@ -2479,6 +2489,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 0
   klass: 0
+  pawn: {fileID: 0}
 --- !u!1 &1218952885
 GameObject:
   m_ObjectHideFlags: 0
@@ -2904,6 +2915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 8
   klass: 7
+  pawn: {fileID: 0}
 --- !u!1 &1563441915
 GameObject:
   m_ObjectHideFlags: 0
@@ -2946,6 +2958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   klass: 3
+  pawn: {fileID: 114433634881591942, guid: 77b5dd6a0368e2c419e049bb5be31d1c, type: 2}
 --- !u!1001 &1608535282
 Prefab:
   m_ObjectHideFlags: 0
@@ -2984,10 +2997,6 @@ Prefab:
     - target: {fileID: 4987791726172836, guid: 1ca9516a1546bac40a05b6846d8b140b, type: 2}
       propertyPath: m_RootOrder
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1013087587103806, guid: 1ca9516a1546bac40a05b6846d8b140b, type: 2}
-      propertyPath: m_Name
-      value: PawnModel_Shield
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ca9516a1546bac40a05b6846d8b140b, type: 2}
@@ -3039,6 +3048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   klass: 5
+  pawn: {fileID: 114626701984120720, guid: bb0665a4d32574e4cba4566719631a45, type: 2}
 --- !u!1 &1698956906
 GameObject:
   m_ObjectHideFlags: 0
@@ -3081,6 +3091,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   klass: 2
+  pawn: {fileID: 0}
 --- !u!1 &1702522712
 GameObject:
   m_ObjectHideFlags: 0
@@ -3396,6 +3407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   klass: 1
+  pawn: {fileID: 114689736793116036, guid: 3b990e4cfdae95241807b6c43433d42b, type: 2}
 --- !u!1 &1771854827
 GameObject:
   m_ObjectHideFlags: 0
@@ -3731,6 +3743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   klass: 7
+  pawn: {fileID: 114763987207641082, guid: 1ca9516a1546bac40a05b6846d8b140b, type: 2}
 --- !u!1001 &1944943623
 Prefab:
   m_ObjectHideFlags: 0
@@ -4106,3 +4119,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   klass: 1
+  pawn: {fileID: 0}

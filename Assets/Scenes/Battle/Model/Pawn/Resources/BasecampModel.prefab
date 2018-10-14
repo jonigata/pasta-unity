@@ -52,3 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   territory: 120
+  life: 1000
+  useCustomAiOffset: 0
+  aiOffset: 0

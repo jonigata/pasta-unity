@@ -55,7 +55,6 @@ public class Stadium : MonoBehaviour {
             pawn.partawnPool = partawnPool;
             pawn.location = p;
             pawn.teamTag = avatar.teamTag;
-            pawn.life = 20;
             pawn.klass = ck;
             pawns.Add(pawn);
 
@@ -98,6 +97,7 @@ public class Stadium : MonoBehaviour {
     bool IsInTheFriendTerritory(Avatar a, Vector2 p) {
         foreach (var pawn in pawns) {
             if (a.teamTag != pawn.teamTag) { continue; }
+            if (pawn.died) { continue; }
             if (Vector2.Distance(pawn.location,p) < pawn.territory) {
                 return true;
             }

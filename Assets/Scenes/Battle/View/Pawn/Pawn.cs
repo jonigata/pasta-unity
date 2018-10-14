@@ -12,6 +12,7 @@ public class Pawn : MonoBehaviour {
     [SerializeField] GameObject appearance;
     [SerializeField] SpriteRenderer icon;
     [SerializeField] ParticleSystem hitEffect;
+    [SerializeField] LifeGauge lifeGauge;
 
     ParticleSystem.Particle[] particles;
     public int particleCount;
@@ -43,6 +44,7 @@ public class Pawn : MonoBehaviour {
             Debug.Log($"cant't find such file: {filename}");
         }
         icon.sprite = sprite;
+        lifeGauge.SetPawnModel(pawnModel);
 
         pawnModel.OnDie.Subscribe(
             u => {

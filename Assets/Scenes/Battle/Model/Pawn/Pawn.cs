@@ -30,6 +30,7 @@ public abstract class Pawn : MonoBehaviour {
     [NonSerialized] public bool died;
     [NonSerialized] public bool damaged;
     [NonSerialized] public CardKlass klass;
+    [NonSerialized] public float initialLife;
 
     Pawn aimTarget_;
     IDisposable aimTargetSubscription;
@@ -44,7 +45,6 @@ public abstract class Pawn : MonoBehaviour {
                 u => aimTarget_ = null).AddTo(gameObject);
         }
     }
-
 
     public virtual void UpdateManually(float elapsed) {
         foreach (var p in partawns) {
@@ -79,6 +79,12 @@ public abstract class Pawn : MonoBehaviour {
         }
         return false;
     }
+
+    void Start() {
+        initialLife = life;
+        Debug.Log($"initial life = {initialLife}");
+    }
+
 }
 
 }

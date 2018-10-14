@@ -17,12 +17,6 @@ public class TrivialPawn : Pawn {
     [SerializeField] public float jitter;
     
     float emitTimer;
-    float initialLife;
-
-    void Start() {
-        initialLife = life;
-        Debug.Log($"initial life = {initialLife}");
-    }
 
     public override void UpdateManually(float elapsed) {
         base.UpdateManually(elapsed);

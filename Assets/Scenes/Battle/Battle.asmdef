@@ -1,0 +1,11 @@
+{
+    "name": "Battle",
+    "references": [
+        "Common",
+        "UniRx"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}

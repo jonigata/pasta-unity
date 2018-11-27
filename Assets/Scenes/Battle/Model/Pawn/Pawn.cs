@@ -29,7 +29,7 @@ public abstract class Pawn : MonoBehaviour {
 
     [NonSerialized] public bool died;
     [NonSerialized] public bool damaged;
-    [NonSerialized] public CardKlass klass;
+    [NonSerialized] public PawnKlass klass;
     [NonSerialized] public float initialLife;
 
     Pawn aimTarget_;

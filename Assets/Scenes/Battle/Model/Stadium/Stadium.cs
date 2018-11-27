@@ -22,13 +22,13 @@ public class Stadium : MonoBehaviour {
 
     List<Pawn> pawns = new List<Pawn>();
 
-    Dictionary<CardKlass, Pawn> prefabs = new Dictionary<CardKlass, Pawn>();
+    Dictionary<PawnKlass, Pawn> prefabs = new Dictionary<PawnKlass, Pawn>();
     
     Subject<Pawn> deploySubject = new Subject<Pawn>();
     public IObservable<Pawn> OnDeploy { get { return deploySubject; } }
 
     void Awake() {
-        foreach (CardKlass k in Enum.GetValues(typeof(CardKlass))) {
+        foreach (PawnKlass k in Enum.GetValues(typeof(PawnKlass))) {
             Debug.Log($"PawnModel_{k}");
             prefabs[k] = Resources.Load<Pawn>($"PawnModel_{k}");
         }
@@ -37,7 +37,7 @@ public class Stadium : MonoBehaviour {
     public bool Deploy(Avatar avatar, Card card, Vector2 p) {
         var ck = card.Klass;
         Debug.LogFormat("Deploying {0}", ck);
-        if (ck != CardKlass.Basecamp) {
+        if (ck != PawnKlass.Basecamp) {
             if (!IsInTheFriendTerritory(avatar, p)) {
                 Debug.Log("Not in the friend territory");
                 return false;
@@ -85,9 +85,9 @@ public class Stadium : MonoBehaviour {
         betaCastle.UpdateManually(Time.deltaTime);
     }
 
-    Pawn GetPawnPrefabByType(CardKlass ck) {
+    Pawn GetPawnPrefabByType(PawnKlass ck) {
         switch (ck) {
-            case CardKlass.Basecamp:
+            case PawnKlass.Basecamp:
                 return basecampPrefab;
             default:
                 return prefabs[ck];

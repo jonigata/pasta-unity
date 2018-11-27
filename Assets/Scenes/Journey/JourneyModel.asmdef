@@ -1,0 +1,11 @@
+{
+    "name": "JourneyModel",
+    "references": [
+        "Common",
+        "UniRx"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}

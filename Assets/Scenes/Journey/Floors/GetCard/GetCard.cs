@@ -32,7 +32,7 @@ public class GetCard : AbstractFloor {
         gameObject.SetActive(false);
         player.poolCardList.Add(chosen);
 
-        Command.CommandHub.subject.OnNext(new Command.GetCard(chosen));
+        Command.CommandHub.Post(new Command.GetCard(chosen));
     }
 
     public void OnClickChooseButton(int index) {

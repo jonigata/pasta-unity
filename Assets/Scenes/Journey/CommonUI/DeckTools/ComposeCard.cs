@@ -26,7 +26,7 @@ public class ComposeCard : MonoBehaviour {
     }
 
     public void OnExecute() {
-        Command.CommandHub.subject.OnNext(
+        Command.CommandHub.Post(
             new Command.Compose(
                 composeCardListModel.Nth(0), 
                 composeCardListModel.Nth(1)));

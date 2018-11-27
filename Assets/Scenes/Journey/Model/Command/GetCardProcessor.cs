@@ -10,14 +10,11 @@ public class GetCardProcessor : MonoBehaviour {
     [SerializeField] Model.CardList cardList;
     
     void Start() {
-        CommandHub.subject
-            .OfType<Command, GetCard>()
-            .Subscribe(
-                x => {
-                    Debug.Log("GetCard Command Received");
-                    cardList.Add(x.card);
-                });
-        
+        CommandHub.Subscribe<GetCard>(
+            x => {
+                Debug.Log("GetCard Command Received");
+                cardList.Add(x.card);
+            });
    }
 }
 

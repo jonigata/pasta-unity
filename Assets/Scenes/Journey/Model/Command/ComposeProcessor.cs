@@ -11,13 +11,11 @@ public class ComposeProcessor : MonoBehaviour {
     [Inject] Model.Player player;
     
     void Start() {
-        CommandHub.subject
-            .OfType<Command, Compose>()
-            .Subscribe(
-                x => {
-                    Debug.Log("Compose Command Received");
-                    player.ComposeCard(x.left, x.right);
-                });
+        CommandHub.Subscribe<Compose>(
+            x => {
+                Debug.Log("Compose Command Received");
+                player.ComposeCard(x.left, x.right);
+            });
         
    }
 }

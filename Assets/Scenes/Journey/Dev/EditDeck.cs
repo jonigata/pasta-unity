@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,33 +7,14 @@ using System.Collections.Generic;
 namespace Dev {
 
 public class EditDeck : MonoBehaviour {
-    [SerializeField] Journey.Model.CardList deckCardList;
-    [SerializeField] Journey.Model.CardList playerCardList;
-    [SerializeField] Journey.UI.EditDeck deckEdit;
+    [SerializeField] Journey.UI.EditDeck editDeck;
+    [Inject] Journey.Model.Player player;
 
-    void Start() {
-        Debug.Log("DeckEdit");
-        var playerJson = @"
-{
-  ""pool"": [
-    {""klass"": 3, ""attributes"":[{""klass"":0, ""level"":1}]},
-    {""klass"": 3, ""attributes"":[{""klass"":0, ""level"":1}]},
-    {""klass"": 3, ""attributes"":[{""klass"":0, ""level"":1}]},
-    {""klass"": 3, ""attributes"":[{""klass"":0, ""level"":1}]},
-    {""klass"": 3, ""attributes"":[{""klass"":0, ""level"":1}]},
-    {""klass"": 3, ""attributes"":[{""klass"":0, ""level"":1}]},
-    {""klass"": 3, ""attributes"":[{""klass"":0, ""level"":1}]},
-    {""klass"": 3, ""attributes"":[{""klass"":0, ""level"":1}]}
-  ], 
-  ""deck"": [], 
-  ""floor"":0 
-}
-";
-        var player = JsonUtility.FromJson<Journey.Data.Player>(playerJson);
+    IEnumerator Start() {
+        Debug.Log("EditDeck");
+        player.MockUp();
 
-        deckCardList.SetUp(player.deck);
-        playerCardList.SetUp(player.pool);
-        deckEdit.SetUp(deckCardList, playerCardList);
+        yield return editDeck.Run();
     }
 }
 

@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/Journey/Journey.unity
+    guid: 9b326fa8d7fde6c4d905cebb362112bf
+  - enabled: 1
+    path: Assets/Scenes/Journey/Floors/GetCard/GetCard.unity
+    guid: 1ff2b6770d037174987f63d586e75151
+  - enabled: 1
+    path: Assets/Scenes/Journey/CommonUI/DeckTools/EditDeck.unity
+    guid: bb4063f3f2938504893b7db8172384da
+  - enabled: 1
+    path: Assets/Scenes/Journey/CommonUI/DeckTools/ComposeCard.unity
+    guid: 570cce424b2af5547bb3258a7af8077f
   m_configObjects: {}

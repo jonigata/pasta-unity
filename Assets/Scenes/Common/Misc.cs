@@ -9,4 +9,10 @@ public class Misc {
         int random = UnityEngine.Random.Range(0, values.Length);
         return (T)values.GetValue(random);
     }
+
+    public static IEnumerator SetActiveUntil(GameObject g, Func<bool> f) {
+        g.SetActive(true);
+        yield return new WaitUntil(f);
+        g.SetActive(false);
+    }
 }

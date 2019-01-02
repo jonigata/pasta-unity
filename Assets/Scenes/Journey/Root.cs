@@ -2,14 +2,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using Zenject;
 
 namespace Journey {
 
 public class Root : MonoBehaviour {
-    [SerializeField] Model.Player player;
-    [SerializeField] Floor.GetCard getCard;
+    [SerializeField] string[] scenes;
+    [Inject] ZenjectSceneLoader sceneLoader;
+    [Inject] Model.Player player;
 
     void Start () {
+        Debug.Log("Running Root");
         StartCoroutine(MainLoop());
     }
 	
@@ -19,19 +23,19 @@ public class Root : MonoBehaviour {
 
     IEnumerator MainLoop() {
         while (true) {
-            yield return PlayDay();
+            yield return PlayOneDay();
         }
         
     }
 
-    IEnumerator PlayDay() {
-        Journey.Floor.AbstractFloor floor = ChooseFloor();
-        yield return floor.Run();
+    IEnumerator PlayOneDay() {
+        sceneLoader.LoadScene(
+            scenes[UnityEngine.Random.Range(0, scenes.Length)],
+            LoadSceneMode.Additive);
+
+        yield return Floor.AbstractFloor.Run();
     }
     
-    Journey.Floor.AbstractFloor ChooseFloor() {
-        return getCard;
-    }
 }
 
 }

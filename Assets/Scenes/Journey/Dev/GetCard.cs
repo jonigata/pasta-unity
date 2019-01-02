@@ -7,24 +7,12 @@ using System.Collections.Generic;
 namespace Dev {
 
 public class GetCard : MonoBehaviour {
-    [Inject] Journey.Model.Player player;
     [SerializeField] Journey.Floor.GetCard getCard;
+    [Inject] Journey.Model.Player player;
 
-    void Awake() {
+    IEnumerator Start() {
         player.MockUp();
-    }
-
-    void Start () {
-        StartCoroutine(PlayOneDay());
-    }
-	
-    IEnumerator PlayOneDay() {
-        Journey.Floor.AbstractFloor floor = ChooseFloor();
-        yield return floor.Run();
-    }
-
-    Journey.Floor.AbstractFloor ChooseFloor() {
-        return getCard;
+        yield return getCard.RunInstance();
     }
 }
 

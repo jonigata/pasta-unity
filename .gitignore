@@ -2,6 +2,7 @@
 *.sln
 Temp/
 Library/
+Logs/
 
 VSCode.meta
 VSCode/
@@ -17,3 +18,6 @@ Plugins/Zenject.meta
 Plugins/Zenject/
 Icons.meta
 Icons/
+
+Routene
+Routene.meta

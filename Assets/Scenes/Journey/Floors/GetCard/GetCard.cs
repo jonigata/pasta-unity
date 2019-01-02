@@ -11,7 +11,9 @@ namespace Journey.Floor {
 
 public class GetCard : AbstractFloor {
     [SerializeField] Model.CardFactory cardFactory;
+    [SerializeField] Canvas uiCanvas;
     [Inject] Model.Player player;
+    [Inject] UI.EditDeck editDeck;
 
     Data.Card[] cards;
     Data.Card chosen;
@@ -24,15 +26,23 @@ public class GetCard : AbstractFloor {
         }
     }
 
-    public override IEnumerator Run() {
+    public override IEnumerator RunInstance() {
         Init();
+        yield return ChooseCard();
+        yield return EditDeck();
+    }
 
-        gameObject.SetActive(true);
+    IEnumerator ChooseCard() {
+        uiCanvas.gameObject.SetActive(true);
         yield return new WaitUntil(() => chosen != null);
-        gameObject.SetActive(false);
+        uiCanvas.gameObject.SetActive(false);
         player.poolCardList.Add(chosen);
 
         Command.CommandHub.Post(new Command.GetCard(chosen));
+    }
+
+    IEnumerator EditDeck() {
+        yield return editDeck.Run();
     }
 
     public void OnClickChooseButton(int index) {

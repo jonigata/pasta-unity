@@ -13,6 +13,7 @@ public class MultipleCardChoose : MonoBehaviour {
     [SerializeField] int minCount;
     [SerializeField] int maxCount;
     [SerializeField] bool hideChosenCard;
+    [SerializeField] Button okButton;
     
     public void SetUp(
         Model.CardList dishCardListModel,
@@ -34,6 +35,13 @@ public class MultipleCardChoose : MonoBehaviour {
                     poolCardList.Show(card);
                 }
             }).AddTo(gameObject);
+        dishCardListModel.Cards.ObserveCountChanged(true)
+            .Select(x => x == maxCount || x == poolCardListModel.Count)
+            .SubscribeToInteractable(okButton);
+    }
+
+    void UpdateUI() {
+        
     }
 }
 

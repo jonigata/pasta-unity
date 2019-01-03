@@ -15,4 +15,10 @@ public class Misc {
         yield return new WaitUntil(f);
         g.SetActive(false);
     }
+
+    public static IEnumerator SetActiveUntil(GameObject g, IEnumerator e) {
+        g.SetActive(true);
+        yield return e;
+        g.SetActive(false);
+    }
 }

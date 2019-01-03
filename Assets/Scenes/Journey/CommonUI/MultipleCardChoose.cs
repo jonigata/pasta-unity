@@ -15,36 +15,60 @@ public class MultipleCardChoose : MonoBehaviour {
     [SerializeField] bool hideChosenCard;
     [SerializeField] Button okButton;
     
-    public void SetUp(
+    public bool aborted;
+    public bool done;
+
+    public IEnumerator Run(
         Model.CardList dishCardListModel,
         Model.CardList poolCardListModel) {
-        Debug.Log("MultipleCardChoose.SetUp");
-        dishCardList.SetUp(dishCardListModel, card => true);
-        poolCardList.SetUp(poolCardListModel, card => true);
 
-        poolCardList.OnSelect.Subscribe(
+        Debug.Log("MultipleCardChoose.SetUp");
+        done = false;
+
+        dishCardList.SetUp(dishCardListModel, card => true, card => true);
+        poolCardList.SetUp(
+            poolCardListModel,
+            card => true,
+            card => dishCardListModel.IndexOf(card) < 0);
+
+        var a1 = poolCardList.OnSelect.Subscribe(
             card => {
                 if (dishCardListModel.Count < maxCount) {
                     dishCardListModel.Add(card);
                     poolCardList.Hide(card);
                 }
-            }).AddTo(gameObject);
-        dishCardList.OnSelect.Subscribe(
+            });
+        var a2 = dishCardList.OnSelect.Subscribe(
             card => {
                 if (minCount < dishCardListModel.Count) {
                     dishCardListModel.Remove(card);
                     poolCardList.Show(card);
                 }
             }).AddTo(gameObject);
-        dishCardListModel.Cards.ObserveCountChanged(true)
+        var a3 = dishCardListModel.Cards.ObserveCountChanged(true)
             .Select(x => x == maxCount || x == poolCardListModel.Count)
-            .SubscribeToInteractable(okButton)
-            .AddTo(gameObject);
+            .SubscribeToInteractable(okButton);
+
+        yield return new WaitUntil(() => done);
+
+        a1.Dispose();
+        a2.Dispose();
+        a3.Dispose();
+
+        dishCardList.TearDown();
+        poolCardList.TearDown();
     }
 
-    void UpdateUI() {
-        
+    public void Exit() {
+        aborted = false;
+        done = true;
     }
+
+    public void Abort() {
+        aborted = true;
+        done = true;
+    }
+
 }
 
 }

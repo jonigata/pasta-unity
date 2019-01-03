@@ -12,17 +12,15 @@ public class EditDeck : MonoBehaviour {
     [SerializeField] Canvas uiCanvas;
     [Inject] Model.Player player;
 
-    bool done;
-    
     public void OnExecute() {
-        done = true; 
+        choose.Exit();
     }
 
     public IEnumerator Run() {
         Debug.Log("EditDeck.Run");
-        done = false;
-        choose.SetUp(player.deckCardList, player.poolCardList);
-        yield return Misc.SetActiveUntil(uiCanvas.gameObject, () => done);
+        yield return Misc.SetActiveUntil(
+            uiCanvas.gameObject,
+            choose.Run(player.deckCardList, player.poolCardList));
     }
 
 }

@@ -16,7 +16,7 @@ public class ComposeCard : MonoBehaviour {
     
     void Start() {
         Debug.Log(player.poolCardList.Count);
-        choose.SetUp(composeCardListModel, player.poolCardList);
+        // choose.SetUp(composeCardListModel, player.poolCardList);
 
         Observable.CombineLatest(
             composeCardListModel.Cards.ObserveCountChanged(true),

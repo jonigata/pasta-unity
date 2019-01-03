@@ -33,6 +33,10 @@ public class CardList : MonoBehaviour {
         cards.Clear();
     }
 
+    public int IndexOf(Data.Card card) {
+        return cards.IndexOf(card);
+    }
+
     public int Count { get { return cards.Count; } }
 
     public Data.Card Nth(int n) {

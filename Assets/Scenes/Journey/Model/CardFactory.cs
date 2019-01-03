@@ -17,7 +17,7 @@ public class CardFactory : MonoBehaviour {
         }
 
         var card = new Data.Card();
-        card.SetUp(PawnKlass.Knife, attributes);
+        card.SetUp(Misc.RandomEnum<PawnKlass>(), attributes);
         return card;
     }
 }

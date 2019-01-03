@@ -36,7 +36,6 @@ public class GetCard : AbstractFloor {
         uiCanvas.gameObject.SetActive(true);
         yield return new WaitUntil(() => chosen != null);
         uiCanvas.gameObject.SetActive(false);
-        player.poolCardList.Add(chosen);
 
         Command.CommandHub.Post(new Command.GetCard(chosen));
     }

@@ -22,6 +22,7 @@ public class CardList : MonoBehaviour {
         cardList.Cards.ObserveAdd().Subscribe(
             x => {
                 if (filter(x.Value)) {
+                    Debug.Log("AddCard");
                     AddCardUI(x.Value);
                 }
             }).AddTo(gameObject);

@@ -14,16 +14,13 @@ public class EditDeck : MonoBehaviour {
 
     bool done;
     
-    void Start() {
-        choose.SetUp(player.deckCardList, player.poolCardList);
-    }
-
     public void OnExecute() {
         done = true; 
     }
 
     public IEnumerator Run() {
         Debug.Log("EditDeck.Run");
+        choose.SetUp(player.deckCardList, player.poolCardList);
         yield return Misc.SetActiveUntil(uiCanvas.gameObject, () => done);
     }
 

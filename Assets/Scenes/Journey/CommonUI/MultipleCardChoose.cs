@@ -18,6 +18,7 @@ public class MultipleCardChoose : MonoBehaviour {
     public void SetUp(
         Model.CardList dishCardListModel,
         Model.CardList poolCardListModel) {
+        Debug.Log("MultipleCardChoose.SetUp");
         dishCardList.SetUp(dishCardListModel, card => true);
         poolCardList.SetUp(poolCardListModel, card => true);
 
@@ -37,7 +38,8 @@ public class MultipleCardChoose : MonoBehaviour {
             }).AddTo(gameObject);
         dishCardListModel.Cards.ObserveCountChanged(true)
             .Select(x => x == maxCount || x == poolCardListModel.Count)
-            .SubscribeToInteractable(okButton);
+            .SubscribeToInteractable(okButton)
+            .AddTo(gameObject);
     }
 
     void UpdateUI() {

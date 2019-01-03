@@ -20,6 +20,7 @@ public class EditDeck : MonoBehaviour {
 
     public IEnumerator Run() {
         Debug.Log("EditDeck.Run");
+        done = false;
         choose.SetUp(player.deckCardList, player.poolCardList);
         yield return Misc.SetActiveUntil(uiCanvas.gameObject, () => done);
     }
